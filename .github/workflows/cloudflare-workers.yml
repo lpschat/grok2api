@@ -181,9 +181,9 @@ jobs:
               data = tomllib.load(f)
           placement = data.get("placement") or {}
           region = (placement.get("region") or "").strip()
-          if region != "aws:us-east-1":
+          if region != "aws:us-west-2":
               raise SystemExit(
-                  'wrangler.ci.toml: missing required [placement] region = "aws:us-east-1"'
+                  'wrangler.ci.toml: missing required [placement] region = "aws:us-west-2"'
               )
           def normalize_dir(v: str) -> str:
               s = (v or "").strip().replace("\\\\", "/")
@@ -205,7 +205,7 @@ jobs:
           build_sha = str(vars.get("BUILD_SHA") or "").strip()
           if not build_sha or build_sha == "dev":
               raise SystemExit('wrangler.ci.toml: BUILD_SHA not set (expected CI to inject GITHUB_SHA)')
-          print(f"OK: placement.region = aws:us-east-1; BUILD_SHA={build_sha}")
+          print(f"OK: placement.region = aws:us-west-2; BUILD_SHA={build_sha}")
           PY
 
       - name: Apply D1 migrations

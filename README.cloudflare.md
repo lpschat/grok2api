@@ -240,12 +240,12 @@ npx wrangler pages deploy app/static --project-name <你的Pages项目名> --com
 
 ```toml
 [placement]
-region = "aws:us-east-1"
+region = "aws:us-west-2"
 ```
 
 这会让 Worker 的执行位置更稳定地靠近美国区域，从而让出站更偏向美区（对上游在美区的场景更友好）。
 
-如需调整：把 `region` 改成你想要的区域（例如 `aws:us-west-2`）。
+如需调整：把 `region` 改成你想要的区域（例如 `aws:us-east-1`）。
 如需关闭：删除 `wrangler.toml` 中的 `[placement]` 段落即可（恢复默认的边缘就近执行）。
 
 ---
